@@ -7,7 +7,7 @@ node_modules/
 
 
 # Build output
-project.*/out
+project-js/out
 
 
 # IDE, Editor

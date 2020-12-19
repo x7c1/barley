@@ -1,0 +1,11 @@
+version: '3'
+services:
+  js-builder:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ../:/barley
+      - ./logs:/root/.npm/_logs
+    command: |
+      /barley/project-js-scripts/build.sh

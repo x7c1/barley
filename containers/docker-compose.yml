@@ -3,7 +3,7 @@ services:
   js-builder:
     build:
       context: .
-      dockerfile: js.Dockerfile
+      dockerfile: js-builder.Dockerfile
     volumes:
       - ../:/barley
       - ./logs:/root/.npm/_logs

@@ -10,6 +10,9 @@ node_modules/
 project.*/out
 
 
+# IDE, Editor
+.idea
+
 # Others
 *.tmp
 

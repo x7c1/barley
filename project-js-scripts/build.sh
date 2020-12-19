@@ -10,4 +10,4 @@ npm install
 
 npm run make
 
-ls -al out/make/deb/x64
+ls -lh out/make/deb/x64

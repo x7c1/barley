@@ -3,9 +3,9 @@ services:
   js-builder:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: js.Dockerfile
     volumes:
       - ../:/barley
       - ./logs:/root/.npm/_logs
     command: |
-      /barley/project-js-scripts/build.sh
+      /barley/project-js/scripts/build.sh

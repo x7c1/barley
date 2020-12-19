@@ -1,4 +1,4 @@
-DOCKER_COMPOSE := docker-compose --file container/docker-compose.yml --project-name barley
+DOCKER_COMPOSE := docker-compose --file containers/docker-compose.yml --project-name barley
 
 up:
 	$(DOCKER_COMPOSE) up \

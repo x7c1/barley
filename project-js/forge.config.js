@@ -13,7 +13,14 @@ module.exports = {
             ];
             // tell me why this empty string should be allowed...
             const shouldInclude = (path === "") || allowlist.some(_ => path.startsWith(_))
-            return !shouldInclude
+
+            const denylist = [
+                "/node_modules/.bin",
+                "/node_modules/electron",
+                "/node_modules/@electron",
+            ]
+            const shouldExclude = denylist.some(_ => path.startsWith(_))
+            return shouldExclude || !shouldInclude
         },
     },
     "makers": [

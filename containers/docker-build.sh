@@ -1,10 +1,8 @@
 #!/usr/bin/env bash
 
 # usage:
-# $ ./docker-build.sh "js.Dockerfile" "js-0.1"
-
-BARLEY_DOCKER_REPOSITORY="ghcr.io/x7c1/barley"
+# $ ./js.version.sh && ./docker-build.sh
 
 docker build ./ \
   --file ./"$BARLEY_DOCKER_FILE" \
-  --tag $BARLEY_DOCKER_REPOSITORY:"$BARLEY_DOCKER_TAG"
+  --tag "$BARLEY_DOCKER_REPOSITORY":"$BARLEY_DOCKER_TAG"

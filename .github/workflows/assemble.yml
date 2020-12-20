@@ -15,6 +15,18 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: Cache rust modules
+        uses: actions/cache@v2
+        with:
+          path: |
+            ~/.cargo/registry
+            ~/.cargo/git
+            ~/.cargo/bin
+            project-rs/target
+          key: ${{ runner.os }}-cargo-${{ github.run_id }}
+          restore-keys: |
+            ${{ runner.os }}-cargo-
+
       - name: Cache node modules
         uses: actions/cache@v2
         env:
@@ -30,5 +42,5 @@ jobs:
             ${{ runner.os }}-build-
             ${{ runner.os }}-
 
-      - name: build
+      - name: Build app
         run: make up

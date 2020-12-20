@@ -11,7 +11,7 @@ on:
     paths:
       - 'containers/js.version.sh'
 jobs:
-  build:
+  push-js-builder:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2

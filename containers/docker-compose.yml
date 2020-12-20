@@ -2,18 +2,12 @@ version: '3'
 services:
   rs-builder:
     image: ghcr.io/x7c1/barley:rs-0.1
-#    build:
-#      context: .
-#      dockerfile: rs.Dockerfile
     volumes:
       - ../:/barley
     command: |
       /barley/project-rs/container-scripts/build.sh
   js-builder:
     image: ghcr.io/x7c1/barley:js-0.1
-#    build:
-#      context: .
-#      dockerfile: js.Dockerfile
     volumes:
       - ../:/barley
       - ./logs:/root/.npm/_logs

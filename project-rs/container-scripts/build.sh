@@ -2,8 +2,11 @@
 
 set -xue
 
-cd /barley/project-js
+cd /barley/project-rs
 
 trunk build \
   --dist ../project-js/dist \
   --release
+
+ls -lh target/wasm32-unknown-unknown/release
+ls -lh target/wasm-bindgen/release

@@ -1,5 +1,13 @@
 version: '3'
 services:
+  rs-builder:
+    build:
+      context: .
+      dockerfile: rs-builder.Dockerfile
+    volumes:
+      - ../:/barley
+    command: |
+      /barley/project-rs/container-scripts/build.sh
   js-builder:
     build:
       context: .

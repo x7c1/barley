@@ -25,4 +25,4 @@ jobs:
       - name: Push docker image
         run: |
           cd containers
-          ./js.version.sh && ./docker-push.sh
+          . ./js.version.sh && ./docker-push.sh

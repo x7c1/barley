@@ -13,7 +13,8 @@ function createWindow () {
     }
   })
 
-  win.loadFile('src/index.html')
+  // win.loadFile('src/index.html')
+  win.loadFile('dist/index.html')
 }
 
 app.whenReady().then(createWindow)

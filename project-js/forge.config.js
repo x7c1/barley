@@ -7,8 +7,9 @@ module.exports = {
     "packagerConfig": {
         "ignore": path => {
             const allowlist = [
-                "/src",
-                "/node_modules",
+                // "/src",
+                // "/node_modules",
+                "/dist",
                 "/package.json",
             ];
             // tell me why this empty string should be allowed...

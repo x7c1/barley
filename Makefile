@@ -4,6 +4,15 @@ help: ## Show this help.
 	@awk -F: '/^[A-Za-z0-9_-]+:.*## / { sub(/.*## /, "", $$2); printf "make %-11s - %s\n", $$1, $$2 }' Makefile
 
 up: ## Build Electron app.
+	make up-rust
+	make up-js
+
+up-rust: ## Build Rust project.
+	$(DOCKER_COMPOSE) up \
+	  --abort-on-container-exit \
+	  rs-builder
+
+up-js: ## Build JavaScript project.
 	$(DOCKER_COMPOSE) up \
 	  --abort-on-container-exit \
 	  js-builder

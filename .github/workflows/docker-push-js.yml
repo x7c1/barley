@@ -1,0 +1,23 @@
+name: docker-push-js
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'containers/js.version.sh'
+  pull_request:
+    branches:
+      - '*'
+    paths:
+      - 'containers/js.version.sh'
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Login to ghcr.io
+        run: |
+          echo "$CR_PAT" | docker login ghcr.io --username x7c1 --password-stdin
+      - run: |
+          cd containers
+          ./js.version.sh

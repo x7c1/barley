@@ -12,3 +12,6 @@ reset:
 	$(DOCKER_COMPOSE) up \
 	  --build \
 	  --force-recreate
+
+run:
+	cd project-js && npm run start

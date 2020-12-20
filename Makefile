@@ -1,7 +1,7 @@
 DOCKER_COMPOSE := docker-compose --file containers/docker-compose.yml --project-name barley
 
 help: ## Show this help.
-	@awk -F: '/^[A-Za-z0-9_-]+:.*## / { sub(/.*## /, "", $$2); printf "make %-11s - %s\n", $$1, $$2 }' Makefile
+	@awk -F: '/^[A-Za-z0-9_-]+:.*## / { sub(/.*## /, "", $$2); printf "make %-12s - %s\n", $$1, $$2 }' Makefile
 
 up: ## Build Electron app.
 	make up-rust
@@ -21,6 +21,11 @@ reset: ## Recreate containers.
 	$(DOCKER_COMPOSE) up \
 	  --build \
 	  --force-recreate
+
+build-images: ## Build docker images.
+	cd containers; \
+	. ./rs.version.sh && ./docker-build.sh; \
+	. ./js.version.sh && ./docker-build.sh
 
 all:
 	rm project-js/dist/*

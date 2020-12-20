@@ -1,13 +1,14 @@
 # Logs
 *.log
 
-
 # Dependency directories
 node_modules/
 
 
 # Build output
 project-js/out
+project-js/dist
+project-rs/target
 
 
 # IDE, Editor
@@ -15,4 +16,3 @@ project-js/out
 
 # Others
 *.tmp
-

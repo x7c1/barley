@@ -18,6 +18,7 @@ jobs:
       - name: Login to ghcr.io
         run: |
           echo "$CR_PAT" | docker login ghcr.io --username x7c1 --password-stdin
-      - run: |
+      - name: Push docker image
+        run: |
           cd containers
           ./js.version.sh

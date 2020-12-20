@@ -8,4 +8,4 @@ services:
       - ../:/barley
       - ./logs:/root/.npm/_logs
     command: |
-      /barley/project-js/scripts/build.sh
+      /barley/project-js/container-scripts/build.sh

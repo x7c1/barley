@@ -5,11 +5,11 @@ services:
     volumes:
       - ../:/barley
     command: |
-      /barley/project-rs/container-scripts/build.sh
+      /barley/containers/rs.build.sh
   js-builder:
     image: ghcr.io/x7c1/barley:js-0.1
     volumes:
       - ../:/barley
       - ./logs:/root/.npm/_logs
     command: |
-      /barley/project-js/container-scripts/build.sh
+      /barley/containers/js.build.sh

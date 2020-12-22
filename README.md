@@ -12,6 +12,11 @@ This repository aims to contain:
   * [ ] [Tray](https://www.electronjs.org/docs/api/tray)
   * [ ] [Notification](https://www.electronjs.org/docs/tutorial/notifications)
 
+## Requirements
+
+* To use Electron.Tray on GNOME
+  * [AppIndicator and KStatusNotifierItem Support - GNOME Shell Extensions](https://extensions.gnome.org/extension/615/appindicator-support/)
+
 ## How to build
 
 [1] Build Docker images:
@@ -63,8 +68,3 @@ $ sudo apt remove barley
 Removing barley (0.0.1) ...
 ...
 ```
-
-## Requirements
-
-* To use Electron.Tray on GNOME
-  * [AppIndicator and KStatusNotifierItem Support - GNOME Shell Extensions](https://extensions.gnome.org/extension/615/appindicator-support/)

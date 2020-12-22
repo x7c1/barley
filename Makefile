@@ -22,13 +22,13 @@ reset: ## Recreate containers.
 	  --build \
 	  --force-recreate
 
-build-images: ## Build docker images.
+images: ## Build docker images.
 	cd containers; \
 	. ./rs.version.sh && ./docker-build.sh; \
 	. ./js.version.sh && ./docker-build.sh
 
 all:
-	rm project-js/dist/*
+	rm -f project-js/dist/*
 	make trunk-build
 	make up
 

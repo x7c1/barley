@@ -24,6 +24,36 @@ $ make images
 
 ```
 $ make up
+...
+js-builder_1  | + ls -lh out/make/deb/x64
+js-builder_1  | total 55M
+js-builder_1  | -rw-r--r-- 1 root root 55M Dec 22 15:51 barley_0.0.1_amd64.deb
+barley_js-builder_1 exited with code 0
+```
+
+## Run app
+
+```
+$ make npm-run
+...
+> electron-forge start
+
+✔ Checking your system
+✔ Locating Application
+✔ Preparing native dependencies
+✔ Launching Application
+```
+
+or install the app directly through deb.
+
+```
+$ sudo apt-get --reinstall install ./project-js/out/make/deb/x64/barley_0.0.1_amd64.deb
+
+# command to uninstall
+$ sudo apt remove barley
+...
+Removing barley (0.0.1) ...
+...
 ```
 
 ## Requirements

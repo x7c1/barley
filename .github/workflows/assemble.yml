@@ -1,0 +1,52 @@
+name: assemble
+on:
+  workflow_dispatch:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - '*'
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Cache rust modules
+        uses: actions/cache@v2
+        with:
+          path: |
+            ~/.cargo/registry
+            ~/.cargo/git
+            ~/.cargo/bin
+            project-rs/target
+          key: ${{ runner.os }}-cargo-${{ github.run_id }}
+          restore-keys: |
+            ${{ runner.os }}-cargo-
+
+      - name: Cache node modules
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: |
+            '**/node_modules'
+            ~/.npm
+
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+
+      - name: Login to ghcr.io
+        run: |
+          echo "$CR_PAT" | docker login ghcr.io --username x7c1 --password-stdin
+        env:
+          CR_PAT: ${{ secrets.CR_PAT }}
+
+      - name: Build app
+        run: make up

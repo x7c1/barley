@@ -1,0 +1,23 @@
+name: docker-push-rs
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'containers/rs.version.sh'
+jobs:
+  push-rs-builder:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Login to ghcr.io
+        run: |
+          echo "$CR_PAT" | docker login ghcr.io --username x7c1 --password-stdin
+        env:
+          CR_PAT: ${{ secrets.CR_PAT }}
+
+      - name: Push docker image
+        run: |
+          cd containers
+          . ./rs.version.sh && ./docker-push.sh

@@ -12,7 +12,6 @@ function createWindow () {
       nodeIntegration: true
     }
   })
-
   win.loadFile('dist/index.html')
 }
 

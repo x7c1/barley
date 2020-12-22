@@ -7,6 +7,7 @@ module.exports = {
     "packagerConfig": {
         "ignore": path => {
             const allowlist = [
+                "/src",
                 "/dist",
                 "/package.json",
 

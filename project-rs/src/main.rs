@@ -33,7 +33,7 @@ impl Component for Model {
     fn update(&mut self, msg: Self::Message) -> ShouldRender {
         match msg {
             Msg::AddOne => {
-                self.value += 10;
+                self.value += 1;
                 // the value has changed so we need to
                 // re-render for it to appear on the page
                 true

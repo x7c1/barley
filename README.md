@@ -44,12 +44,20 @@ $ make npm-run
 ✔ Launching Application
 ```
 
-or install the app directly through deb.
+Or install the app directly through deb.
 
 ```
 $ sudo apt-get --reinstall install ./project-js/out/make/deb/x64/barley_0.0.1_amd64.deb
 
-# command to uninstall
+```
+
+You can launch and remove it from command line:
+
+```
+# useful to watch logs of renderer process.
+$ /lib/barley/barley
+
+# to uninstall app after debugging.
 $ sudo apt remove barley
 ...
 Removing barley (0.0.1) ...

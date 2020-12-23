@@ -1,4 +1,5 @@
-const { app, BrowserWindow, screen } = require('electron')
+const path = require('path');
+const { app, BrowserWindow, screen, Menu, Tray } = require('electron')
 
 function createWindow () {
   const screenArea = screen.getPrimaryDisplay().workArea
@@ -30,3 +31,23 @@ app.on('activate', () => {
   }
 })
 
+let tray = null;
+
+const createTray = () =>{
+  const icon = path.join(__dirname, 'barley-icon.png')
+  tray = new Tray(icon);
+  tray.setToolTip('This is my application.');
+
+  const contextMenu = Menu.buildFromTemplate([
+    { label: 'Item1', type: 'radio' },
+    { label: 'Item2', type: 'radio' }
+  ])
+
+  // Make a change to the context menu
+  contextMenu.items[1].checked = false
+
+  // Call this again for Linux because we modified the context menu
+  tray.setContextMenu(contextMenu)
+};
+
+app.whenReady().then(createTray)

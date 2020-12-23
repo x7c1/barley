@@ -27,10 +27,8 @@ images: ## Build docker images.
 	. ./rs.version.sh && ./docker-build.sh; \
 	. ./js.version.sh && ./docker-build.sh
 
-all:
+clear:
 	rm -f project-js/dist/*
-	make trunk-build
-	make up
 
 npm-run: ## Launch Electron app.
 	cd project-js; \
@@ -41,9 +39,3 @@ trunk-serve: ## Launch dev server.
 	trunk serve \
 		--public-url '/' \
 		--dist ../project-js/dist
-
-trunk-build: ## Build wasm files.
-	cd project-rs; \
-	trunk build \
-		--dist ../project-js/dist \
-		--release

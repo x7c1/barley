@@ -6,8 +6,8 @@
 
 This repository aims to contain:
 
-* [x] Yew [sample](https://yew.rs/docs/en/getting-started/build-a-sample-app).
-* [x] Electron sample using wasm.
+* [x] Yew [sample](https://yew.rs/docs/en/getting-started/build-a-sample-app) to generate wasm.
+* [x] Electron sample using them.
 * Basic samples most apps will need:
   * [ ] [Tray](https://www.electronjs.org/docs/api/tray)
   * [ ] [Notification](https://www.electronjs.org/docs/tutorial/notifications)
@@ -58,7 +58,7 @@ $ sudo apt-get --reinstall install ./project-js/out/make/deb/x64/barley_0.0.1_am
 You can launch and remove it from command line:
 
 ```
-# useful to watch logs of renderer process.
+# useful to watch logs of main process.
 $ /lib/barley/barley
 
 # to uninstall app after debugging.

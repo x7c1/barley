@@ -1,7 +1,7 @@
 version: '3'
 services:
   rs-builder:
-    image: ghcr.io/x7c1/barley:rs-0.1
+    image: ghcr.io/x7c1/barley:rs-0.2
     volumes:
       - ../:/barley
     command: |

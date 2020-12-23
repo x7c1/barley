@@ -22,3 +22,4 @@ ENV CARGO_DIR /root/.cargo
 ENV PATH $CARGO_DIR/bin:$PATH
 RUN cargo install trunk wasm-bindgen-cli
 RUN rustup target add wasm32-unknown-unknown
+RUN curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh

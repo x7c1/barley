@@ -4,6 +4,7 @@ help: ## Show this help.
 	@awk -F: '/^[A-Za-z0-9_-]+:.*## / { sub(/.*## /, "", $$2); printf "make %-12s - %s\n", $$1, $$2 }' Makefile
 
 up: ## Build Electron app.
+	make up-rust-main
 	make up-rust-renderer
 	make up-js
 

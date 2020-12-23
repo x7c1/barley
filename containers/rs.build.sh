@@ -5,7 +5,8 @@ set -xue
 cd /barley/project-rs
 
 trunk build \
-  --dist ../project-js/dist \
+  app/Cargo.toml \
+  --dist /barley/project-js/dist \
   --release
 
 ls -lh target/wasm32-unknown-unknown/release

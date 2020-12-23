@@ -1,3 +1,5 @@
+const barley = require("../barley-main");
+
 const path = require('path');
 const { app, BrowserWindow, screen, Menu, Tray } = require('electron')
 
@@ -13,6 +15,10 @@ function createWindow () {
       nodeIntegration: true
     }
   })
+
+  // sample to receive value from barley-main wasm
+  console.log(barley.explainSystem())
+
   win.loadFile('dist/index.html')
   win.webContents.openDevTools()
 }

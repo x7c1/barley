@@ -10,6 +10,7 @@ module.exports = {
                 "/src",
                 "/dist",
                 "/package.json",
+                "/barley-main",
 
                 /*
                 no need to include /node_modules dir

@@ -4,13 +4,20 @@ help: ## Show this help.
 	@awk -F: '/^[A-Za-z0-9_-]+:.*## / { sub(/.*## /, "", $$2); printf "make %-12s - %s\n", $$1, $$2 }' Makefile
 
 up: ## Build Electron app.
-	make up-rust
+	make up-rust-renderer
 	make up-js
 
-up-rust: ## Build Rust project.
-	$(DOCKER_COMPOSE) up \
-	  --abort-on-container-exit \
-	  rs-builder
+up-rust-renderer: ## Build Rust project for renderer process.
+	$(DOCKER_COMPOSE) run \
+	  -e BARLEY_BUILD_KIND='renderer' \
+	  rs-builder \
+	  /barley/containers/rs.build.sh
+
+up-rust-main: ## Build Rust project for main process.
+	$(DOCKER_COMPOSE) run \
+	  -e BARLEY_BUILD_KIND='main' \
+	  rs-builder \
+	  /barley/containers/rs.build.sh
 
 up-js: ## Build JavaScript project.
 	$(DOCKER_COMPOSE) up \

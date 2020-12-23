@@ -37,5 +37,6 @@ npm-run: ## Launch Electron app.
 trunk-serve: ## Launch dev server.
 	cd project-rs; \
 	trunk serve \
+		app/Cargo.toml \
 		--public-url '/' \
 		--dist ../project-js/dist

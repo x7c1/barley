@@ -5,7 +5,7 @@ set -xue
 cd /barley/project-rs
 
 trunk build \
-  app/Cargo.toml \
+  app/index.html \
   --dist /barley/project-js/dist \
   --release
 

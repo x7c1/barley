@@ -1,10 +1,22 @@
 [package]
-name = "barley"
+name = "barley-renderer"
 version = "0.0.1"
 authors = ["x7c1 <jmtaro+x7c1@gmail.com>"]
 edition = "2018"
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[lib]
+crate-type = ["cdylib", "rlib"]
 
 [dependencies]
 yew = "0.17"
+wasm-bindgen = "0.2.63"
+
+[dependencies.web-sys]
+version = "0.3.22"
+features = ["console"]
+
+# TODO: use wasm-opt=false only when debugging
+[package.metadata.wasm-pack.profile.release]
+wasm-opt = false
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html

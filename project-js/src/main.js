@@ -5,20 +5,28 @@ const { app, BrowserWindow, screen, Menu, Tray } = require('electron')
 
 function createWindow () {
   const screenArea = screen.getPrimaryDisplay().workArea
-  const [ width, height ] = [ 800, 600 ]
+  const [ width, height ] = [ 900, 900 ]
   const win = new BrowserWindow({
     x: screenArea.x + screenArea.width / 2 - width / 2,
     y: screenArea.y + screenArea.height / 2 - height / 2,
     width,
     height,
     webPreferences: {
-      nodeIntegration: true
+      // nodeIntegration: true,
+      preload: path.join(__dirname, 'preload.js'),
     }
   })
-
   // sample to receive value from barley-main wasm
   console.log(barley.explainSystem())
 
+  console.log(barley.createConfig())
+  console.log(barley.createConfig().num)
+  console.log(__filename)
+
+  // console.log(barley.setupWindow())
+
+  // win.loadFile('dist/index.html')
+  // win.loadFile('src/index.html')
   win.loadFile('dist/index.html')
   win.webContents.openDevTools()
 }

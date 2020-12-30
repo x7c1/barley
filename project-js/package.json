@@ -4,10 +4,13 @@
   "description": "sample electron app",
   "main": "src/main.js",
   "scripts": {
-    "start": "electron-forge start",
-    "package": "electron-forge package",
-    "make": "electron-forge make",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "electron-start": "electron-forge start",
+    "electron-package": "electron-forge package",
+    "electron-make": "electron-forge make",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "webpack": "webpack",
+    "webpack-build": "rimraf dist pkg && webpack",
+    "webpack-start": "rimraf dist pkg && webpack-dev-server --host 0.0.0.0 --open -d"
   },
   "keywords": [],
   "author": "",
@@ -15,6 +18,12 @@
   "devDependencies": {
     "@electron-forge/cli": "^6.0.0-beta.54",
     "@electron-forge/maker-deb": "^6.0.0-beta.54",
-    "electron": "^11.1.0"
+    "electron": "^11.1.0",
+    "@wasm-tool/wasm-pack-plugin": "^1.1.0",
+    "copy-webpack-plugin": "^5.0.3",
+    "webpack": "^4.42.0",
+    "webpack-cli": "^3.3.3",
+    "webpack-dev-server": "^3.7.1",
+    "rimraf": "^3.0.0"
   }
 }

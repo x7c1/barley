@@ -55,7 +55,7 @@ Or install the app directly through deb.
 $ sudo apt-get --reinstall install ./project-js/out/make/deb/x64/barley_0.0.1_amd64.deb
 ```
 
-You can launch and remove it from command line:
+You can launch and remove it by command line:
 
 ```
 # useful to watch logs of main process.

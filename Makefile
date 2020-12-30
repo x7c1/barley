@@ -10,20 +10,37 @@ up: ## Build Electron app.
 
 up-rust-renderer: ## Build Rust project for renderer process.
 	$(DOCKER_COMPOSE) run \
+	  --rm \
 	  -e BARLEY_BUILD_KIND='renderer' \
 	  rs-builder \
 	  /barley/containers/rs.build.sh
 
 up-rust-main: ## Build Rust project for main process.
 	$(DOCKER_COMPOSE) run \
+	  --rm \
 	  -e BARLEY_BUILD_KIND='main' \
 	  rs-builder \
 	  /barley/containers/rs.build.sh
 
-up-js: ## Build JavaScript project.
-	$(DOCKER_COMPOSE) up \
-	  --abort-on-container-exit \
-	  js-builder
+#up-js: ## Build JavaScript project.
+#	$(DOCKER_COMPOSE) up \
+#	  --abort-on-container-exit \
+#	  js-builder
+
+electron:
+	$(DOCKER_COMPOSE) run \
+	  --rm \
+	  -e BARLEY_BUILD_KIND='electron-make' \
+	  js-builder \
+	  /barley/containers/js.build.sh
+
+webpack: ## Build JS project.
+	$(DOCKER_COMPOSE) run \
+	  --rm \
+	  -e BARLEY_BUILD_KIND='webpack-build' \
+	  js-builder \
+	  /barley/containers/js.build.sh
+
 
 reset: ## Recreate containers.
 	$(DOCKER_COMPOSE) up \
@@ -38,9 +55,10 @@ images: ## Build docker images.
 clear:
 	rm -f project-js/dist/*
 
-npm-run: ## Launch Electron app.
+run-electron: ## Launch Electron app.
 	cd project-js; \
-	npm run start
+	npm run electron-start
+
 
 trunk-serve: ## Launch dev server.
 	cd project-rs; \

@@ -7,7 +7,7 @@ services:
     command: |
       /barley/containers/rs.build.sh
   js-builder:
-    image: ghcr.io/x7c1/barley:js-0.1
+    image: ghcr.io/x7c1/barley:js-0.2
     volumes:
       - ../:/barley
       - ./logs:/root/.npm/_logs

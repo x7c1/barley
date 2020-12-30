@@ -30,13 +30,13 @@ for_main_process() {
 for_renderer_process() {
   echo "build for renderer process"
 
-  trunk build \
-    app/index.html \
-    --dist /barley/project-js/dist \
+  wasm-pack build \
+    app \
+    --target bundler \
+    --out-dir /barley/project-js/barley-renderer \
     --release
 
-  ls -lh target/wasm32-unknown-unknown/release
-  ls -lh /barley/project-js/dist
+  ls -lh /barley/project-js/barley-renderer
 }
 
 when_unknown_build_kind() {

@@ -2,12 +2,40 @@
 
 set -xue
 
-node -v
+main() {
+  cd /barley/project-js
 
-cd /barley/project-js
+  case $BARLEY_BUILD_KIND in
+  "electron-make" )
+    for_electron_make ;;
+  "webpack-server" )
+    for_webpack_server ;;
+  "webpack-build" )
+    for_webpack_build ;;
+  * )
+    when_unknown_build_kind ;;
+  esac
+}
 
-npm install
+for_electron_make() {
+  echo "build electron app"
+  npm install
+  npm run electron-make
+}
 
-npm run make
+for_webpack_server() {
+  echo "launch webpack-dev-server"
+  npm run webpack-start
+}
 
-ls -lh out/make/deb/x64
+for_webpack_build() {
+  echo "run webpack"
+  npm run webpack
+}
+
+when_unknown_build_kind() {
+  echo "unknown BARLEY_BUILD_KIND=$BARLEY_BUILD_KIND"
+  exit 1
+}
+
+main

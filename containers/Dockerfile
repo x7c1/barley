@@ -1,6 +1,6 @@
 FROM ubuntu:latest
 
-# required by node.js ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- #
+# required by node.js ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- #
 
 RUN apt-get update -y && \
     apt-get install -y \
@@ -21,7 +21,7 @@ RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v$NVM_VERSION/install.
 
 ENV PATH $NVM_DIR/versions/node/v$NODE_VERSION/bin:$PATH
 
-# required by wasm-pack-plugin ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- #
+# required by wasm-pack-plugin ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- #
 
 # prevent cmake installer from being stopped when configuring tzdata
 # rf. https://stackoverflow.com/a/44333806

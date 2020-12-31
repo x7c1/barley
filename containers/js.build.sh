@@ -6,6 +6,8 @@ main() {
   cd /barley/project-js
 
   case $BARLEY_BUILD_KIND in
+  "npm-install" )
+    for_npm_install ;;
   "electron-make" )
     for_electron_make ;;
   "webpack-server" )
@@ -17,9 +19,12 @@ main() {
   esac
 }
 
+for_npm_install() {
+  npm install
+}
+
 for_electron_make() {
   echo "build electron app"
-  npm install
   npm run electron-make
 }
 
@@ -29,7 +34,6 @@ for_webpack_server() {
 }
 
 for_webpack_build() {
-  echo "run webpack"
   npm run webpack
 }
 

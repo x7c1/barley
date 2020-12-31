@@ -6,7 +6,9 @@ help: ## Show this help.
 up: ## Build Electron app.
 	make up-rust-main
 	make up-rust-renderer
-	make up-js
+	make npm-install
+	make webpack
+	make electron
 
 up-rust-renderer: ## Build Rust project for renderer process.
 	$(DOCKER_COMPOSE) run \
@@ -26,6 +28,13 @@ up-rust-main: ## Build Rust project for main process.
 #	$(DOCKER_COMPOSE) up \
 #	  --abort-on-container-exit \
 #	  js-builder
+
+npm-install:
+	$(DOCKER_COMPOSE) run \
+	  --rm \
+	  -e BARLEY_BUILD_KIND='npm-install' \
+	  js-builder \
+	  /barley/containers/js.build.sh
 
 electron:
 	$(DOCKER_COMPOSE) run \

@@ -26,6 +26,9 @@ for_npm_install() {
 for_electron_make() {
   echo "build electron app"
   npm run electron-make
+
+  ls -alh out/barley-linux-x64
+  ls -alh out/make/deb/x64
 }
 
 for_webpack_server() {
@@ -35,6 +38,7 @@ for_webpack_server() {
 
 for_webpack_build() {
   npm run webpack
+  ls -alh pkg
 }
 
 when_unknown_build_kind() {

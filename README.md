@@ -19,13 +19,13 @@ This repository aims to contain:
 
 ## How to build
 
-[1] Build Docker images:
+[1] Build Docker image :
 
 ```
-$ make images
+$ make docker-image
 ```
 
-[2] Build project:
+[2] Assemble Electron app :
 
 ```
 $ make up
@@ -39,7 +39,7 @@ barley_js-builder_1 exited with code 0
 ## Run app
 
 ```
-$ make npm-run
+$ make run-electron
 ...
 > electron-forge start
 

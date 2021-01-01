@@ -20,7 +20,9 @@ main() {
 }
 
 for_npm_install() {
-  apt-get install -y python3.8
+  # workaround
+  # https://github.com/mapbox/node-pre-gyp/issues/477#issuecomment-689923448
+  apt-get install -y build-essential python
 
   npm install
 }

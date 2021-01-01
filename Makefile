@@ -3,9 +3,9 @@ DOCKER_COMPOSE := docker-compose --file containers/docker-compose.yml --project-
 help: ## Show this help.
 	@awk -F: '/^[A-Za-z0-9_-]+:.*## / { sub(/.*## /, "", $$2); printf "make %-12s - %s\n", $$1, $$2 }' Makefile
 
-all: ## Assemble Electron app.
+assemble: ## Assemble Electron app.
 	make rust-main
-	make rust-renderer
+# 	make rust-renderer
 	make npm-install
 	make webpack
 	make electron

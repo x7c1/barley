@@ -28,7 +28,7 @@ $ make docker-image
 [2] Assemble Electron app :
 
 ```
-$ make up
+$ make all
 ...
 js-builder_1  | + ls -lh out/make/deb/x64
 js-builder_1  | total 55M

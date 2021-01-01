@@ -5,6 +5,7 @@ help: ## Show this help.
 
 all: ## Assemble Electron app.
 	make rust-main
+	make rust-renderer
 	make npm-install
 	make webpack
 	make electron
@@ -13,6 +14,13 @@ rust-main: ## Build Rust project for main process.
 	$(DOCKER_COMPOSE) run \
 	  --rm \
 	  -e BARLEY_BUILD_KIND='main' \
+	  rs-builder \
+	  /barley/containers/rs.build.sh
+
+rust-renderer: ## Build Rust project for renderer process.
+	$(DOCKER_COMPOSE) run \
+	  --rm \
+	  -e BARLEY_BUILD_KIND='renderer' \
 	  rs-builder \
 	  /barley/containers/rs.build.sh
 

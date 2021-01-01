@@ -20,6 +20,8 @@ main() {
 }
 
 for_npm_install() {
+  python3 -V
+
   npm install
 }
 

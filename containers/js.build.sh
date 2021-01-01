@@ -21,7 +21,6 @@ main() {
 
 for_npm_install() {
   apt-get install -y python3.8
-  python3 -V
 
   npm install
 }

@@ -44,13 +44,8 @@ extern {
     pub fn set_y(this: &BrowserWindowOptions, value: Option<usize>);
 }
 
-// impl Default for BrowserWindowOptions {
-//     fn default() -> Self {
-//         Object::new().unchecked_into()
-//     }
-// }
-
 #[wasm_bindgen]
+#[derive(Debug)]
 pub struct BarleyConfig {
     foo_bar: String,
     num: f64,
@@ -68,11 +63,14 @@ impl BarleyConfig {
         self.num
     }
 
+    #[wasm_bindgen(method, js_name = toString)]
+    pub fn to_string(&self) -> String {
+        format!("{:#?}", self)
+    }
 }
 
 #[wasm_bindgen(module = "electron")]
 extern {
-    // #[wasm_bindgen]
     #[wasm_bindgen(typescript_type = "electron.BrowserWindow")]
     pub type BrowserWindow;
 

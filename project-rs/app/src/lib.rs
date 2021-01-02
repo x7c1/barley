@@ -32,19 +32,11 @@ impl Component for Model {
     }
 
     fn update(&mut self, msg: Self::Message) -> ShouldRender {
-        let sample = format!("system version is {}", get_system_version());
+        let sample = format!("system version is {}", unsafe { process.get_system_version() });
         log(sample.as_str());
 
-        // let sample = format!("type is {}", process.get_type());
-        // log(sample.as_str());
-        //
-        // let sample = format!("window is {:?}", remote.get_current_window());
-        // log(sample.as_str());
-
-        // remote.browser_window::new();
-
-        // let sample = format!("remote is {}", remote.get_type());
-        // log(sample.as_str());
+        let sample = format!("type is {}", unsafe { process.get_type() });
+        log(sample.as_str());
 
         match msg {
             Msg::AddOne => {
@@ -73,9 +65,6 @@ impl Component for Model {
     }
 }
 
-// #[wasm_bindgen(module = "./node_modules/electron/")]
-// #[wasm_bindgen(raw_module = "../node_modules/electron")]
-// #[wasm_bindgen(module = "electron")]
 #[wasm_bindgen]
 extern {
     #[wasm_bindgen]
@@ -89,7 +78,6 @@ extern {
 
 #[wasm_bindgen]
 extern {
-    #[derive(Debug)]
     #[wasm_bindgen]
     pub type BrowserWindow;
 
@@ -103,13 +91,6 @@ extern {
     fn log(s: &str);
 }
 
-// #[wasm_bindgen(module = "electron")]
-#[wasm_bindgen]
-extern {
-    #[wasm_bindgen(js_namespace = process, js_name = getSystemVersion)]
-    pub fn get_system_version() -> String;
-}
-
 #[wasm_bindgen]
 extern {
     #[wasm_bindgen]
@@ -119,6 +100,9 @@ extern {
 
     #[wasm_bindgen(method, getter, js_name = type)]
     pub fn get_type(this: &Process) -> String;
+
+    #[wasm_bindgen(method, js_name = getSystemVersion)]
+    pub fn get_system_version(this: &Process) -> String;
 }
 
 #[wasm_bindgen(start)]

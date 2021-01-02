@@ -16,17 +16,10 @@ function createWindow () {
       preload: path.join(__dirname, 'preload.js'),
     }
   })
-  // sample to receive value from barley-main wasm
+  // sample to use fields through barley-main wasm
   console.log(barley.explainSystem())
+  console.log("config: " + barley.createConfig())
 
-  console.log(barley.createConfig())
-  console.log(barley.createConfig().num)
-  console.log(__filename)
-
-  // console.log(barley.setupWindow())
-
-  // win.loadFile('dist/index.html')
-  // win.loadFile('src/index.html')
   win.loadFile('dist/index.html')
   win.webContents.openDevTools()
 }

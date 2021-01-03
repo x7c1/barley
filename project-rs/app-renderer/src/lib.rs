@@ -65,23 +65,22 @@ impl Component for Model {
     }
 }
 
-#[wasm_bindgen]
-extern {
-    #[wasm_bindgen]
-    pub type Remote;
-
-    pub static remote: Remote;
-
-    #[wasm_bindgen(method, js_name = getCurrentWindow)]
-    pub fn get_current_window(this: &Remote) -> BrowserWindow;
-}
-
-#[wasm_bindgen]
+#[wasm_bindgen(module = "electron")]
 extern {
     #[wasm_bindgen]
     pub type BrowserWindow;
 
-    #[wasm_bindgen(constructor)]
+    /// Cannot call this method if running untrusted content
+    /// since it requires following BrowserWindow settings:
+    ///
+    /// ```js
+    /// webPreferences: {
+    ///   nodeIntegration: true,
+    ///   enableRemoteModule: true
+    /// ```
+    ///
+    /// See also https://www.electronjs.org/docs/tutorial/security
+    #[wasm_bindgen(constructor, js_namespace = remote)]
     pub fn new() -> BrowserWindow;
 }
 

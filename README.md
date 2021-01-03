@@ -25,10 +25,10 @@ This repository aims to contain:
 $ make docker-image
 ```
 
-[2] Assemble Electron app :
+[2] Build Electron app :
 
 ```
-$ make all
+$ make assemble
 ...
 js-builder_1  | + ls -lh out/make/deb/x64
 js-builder_1  | total 55M

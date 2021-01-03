@@ -5,7 +5,6 @@ help: ## Show this help.
 
 assemble: ## Assemble Electron app.
 	make rust-main
-# 	make rust-renderer
 	make npm-install
 	make webpack
 	make electron
@@ -17,24 +16,10 @@ rust-main: ## Build Rust project for main process.
 	  rs-builder \
 	  /barley/containers/rs.build.sh
 
-rust-renderer: ## Build Rust project for renderer process.
-	$(DOCKER_COMPOSE) run \
-	  --rm \
-	  -e BARLEY_BUILD_KIND='renderer' \
-	  rs-builder \
-	  /barley/containers/rs.build.sh
-
 npm-install: ## Run `npm install`.
 	$(DOCKER_COMPOSE) run \
 	  --rm \
 	  -e BARLEY_BUILD_KIND='npm-install' \
-	  js-builder \
-	  /barley/containers/js.build.sh
-
-electron: ## Build Electron app.
-	$(DOCKER_COMPOSE) run \
-	  --rm \
-	  -e BARLEY_BUILD_KIND='electron-make' \
 	  js-builder \
 	  /barley/containers/js.build.sh
 
@@ -44,6 +29,16 @@ webpack: ## Run webpack.
 	  -e BARLEY_BUILD_KIND='webpack-build' \
 	  js-builder \
 	  /barley/containers/js.build.sh
+electron: ## Build Electron app.
+	$(DOCKER_COMPOSE) run \
+	  --rm \
+	  -e BARLEY_BUILD_KIND='electron-make' \
+	  js-builder \
+	  /barley/containers/js.build.sh
+
+run-electron: ## Launch Electron app.
+	cd project-js; \
+	npm run electron-start
 
 reset: ## Recreate containers.
 	$(DOCKER_COMPOSE) up \
@@ -53,10 +48,3 @@ reset: ## Recreate containers.
 docker-image: ## Build docker image.
 	cd containers; \
 	. ./version.sh && ./docker-build.sh
-
-clear:
-	rm -f project-js/dist/*
-
-run-electron: ## Launch Electron app.
-	cd project-js; \
-	npm run electron-start

@@ -12,6 +12,7 @@ function createWindow () {
     width,
     height,
     webPreferences: {
+      // rf. https://www.electronjs.org/docs/tutorial/security#2-do-not-enable-nodejs-integration-for-remote-content
       // nodeIntegration: true,
       preload: path.join(__dirname, 'preload.js'),
     }

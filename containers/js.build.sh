@@ -5,7 +5,7 @@ set -xue
 main() {
   cd /barley/project-js
 
-  case $BARLEY_BUILD_KIND in
+  case $BARLEY_TASK in
   "npm-install" )
     for_npm_install ;;
   "electron-make" )
@@ -47,7 +47,7 @@ for_webpack_build() {
 }
 
 when_unknown_build_kind() {
-  echo "unknown BARLEY_BUILD_KIND=$BARLEY_BUILD_KIND"
+  echo "unknown BARLEY_TASK=$BARLEY_TASK"
   exit 1
 }
 

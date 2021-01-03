@@ -5,7 +5,7 @@ set -xue
 main() {
   cd /barley/project-rs
 
-  case $BARLEY_BUILD_KIND in
+  case $BARLEY_TASK in
   "main" )
     for_main_process ;;
   "renderer" )
@@ -40,7 +40,7 @@ for_renderer_process() {
 }
 
 when_unknown_build_kind() {
-  echo "unknown BARLEY_BUILD_KIND=$BARLEY_BUILD_KIND"
+  echo "unknown BARLEY_TASK=$BARLEY_TASK"
   exit 1
 }
 

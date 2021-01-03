@@ -39,7 +39,7 @@ barley_js-builder_1 exited with code 0
 ## Run app
 
 ```
-$ make run-electron
+$ make electron-start
 ...
 > electron-forge start
 

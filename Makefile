@@ -1,7 +1,7 @@
 DOCKER_COMPOSE := docker-compose --file containers/docker-compose.yml --project-name barley
 
 help: ## Show this help.
-	@awk -F: '/^[A-Za-z0-9_-]+:.*## / { sub(/.*## /, "", $$2); printf "make %-12s - %s\n", $$1, $$2 }' Makefile
+	@awk -F: '/^[A-Za-z0-9_-]+:.*## / { sub(/.*## /, "", $$2); printf "make %-14s - %s\n", $$1, $$2 }' Makefile
 
 assemble: ## Assemble Electron app.
 	make rust-main
@@ -29,6 +29,7 @@ webpack: ## Run webpack.
 	  -e BARLEY_BUILD_KIND='webpack-build' \
 	  js-builder \
 	  /barley/containers/js.build.sh
+
 electron: ## Build Electron app.
 	$(DOCKER_COMPOSE) run \
 	  --rm \
@@ -36,15 +37,15 @@ electron: ## Build Electron app.
 	  js-builder \
 	  /barley/containers/js.build.sh
 
-run-electron: ## Launch Electron app.
+electron-start: ## Launch Electron app.
 	cd project-js; \
 	npm run electron-start
+
+docker-image: ## Build docker image.
+	cd containers; \
+	. ./version.sh && ./docker-build.sh
 
 reset: ## Recreate containers.
 	$(DOCKER_COMPOSE) up \
 	  --build \
 	  --force-recreate
-
-docker-image: ## Build docker image.
-	cd containers; \
-	. ./version.sh && ./docker-build.sh

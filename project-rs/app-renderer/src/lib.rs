@@ -32,10 +32,10 @@ impl Component for Model {
     }
 
     fn update(&mut self, msg: Self::Message) -> ShouldRender {
-        let sample = format!("system version is {}", unsafe { process.get_system_version() });
+        let sample = format!("system version is {}", process.get_system_version());
         log(sample.as_str());
 
-        let sample = format!("type is {}", unsafe { process.get_type() });
+        let sample = format!("type is {}", process.get_type());
         log(sample.as_str());
 
         match msg {

@@ -1,7 +1,6 @@
 [package]
 name = "app-renderer"
 version = "0.0.1"
-authors = ["x7c1 <jmtaro+x7c1@gmail.com>"]
 edition = "2018"
 
 [lib]

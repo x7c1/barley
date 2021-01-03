@@ -30,10 +30,10 @@ $ make docker-image
 ```
 $ make assemble
 ...
-js-builder_1  | + ls -lh out/make/deb/x64
-js-builder_1  | total 55M
-js-builder_1  | -rw-r--r-- 1 root root 55M Dec 22 15:51 barley_0.0.1_amd64.deb
-barley_js-builder_1 exited with code 0
+app-builder_1  | + ls -lh out/make/deb/x64
+app-builder_1  | total 55M
+app-builder_1  | -rw-r--r-- 1 root root 55M Dec 22 15:51 barley_0.0.1_amd64.deb
+barley_app-builder_1 exited with code 0
 ```
 
 ## Run app

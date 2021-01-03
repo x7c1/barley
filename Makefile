@@ -13,28 +13,28 @@ rust-main: ## Build Rust project for main process.
 	$(DOCKER_COMPOSE) run \
 	  --rm \
 	  -e BARLEY_BUILD_KIND='main' \
-	  rs-builder \
+	  app-builder \
 	  /barley/containers/rs.build.sh
 
 npm-install: ## Run `npm install`.
 	$(DOCKER_COMPOSE) run \
 	  --rm \
 	  -e BARLEY_BUILD_KIND='npm-install' \
-	  js-builder \
+	  app-builder \
 	  /barley/containers/js.build.sh
 
 webpack: ## Run webpack.
 	$(DOCKER_COMPOSE) run \
 	  --rm \
 	  -e BARLEY_BUILD_KIND='webpack-build' \
-	  js-builder \
+	  app-builder \
 	  /barley/containers/js.build.sh
 
 electron: ## Build Electron app.
 	$(DOCKER_COMPOSE) run \
 	  --rm \
 	  -e BARLEY_BUILD_KIND='electron-make' \
-	  js-builder \
+	  app-builder \
 	  /barley/containers/js.build.sh
 
 electron-start: ## Launch Electron app.

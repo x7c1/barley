@@ -15,7 +15,7 @@ main() {
   "webpack-build" )
     for_webpack_build ;;
   * )
-    when_unknown_build_kind ;;
+    for_unknown_task ;;
   esac
 }
 
@@ -46,7 +46,7 @@ for_webpack_build() {
   ls -alh dist
 }
 
-when_unknown_build_kind() {
+for_unknown_task() {
   echo "unknown BARLEY_TASK=$BARLEY_TASK"
   exit 1
 }

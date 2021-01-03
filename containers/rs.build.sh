@@ -11,7 +11,7 @@ main() {
   "renderer" )
     for_renderer_process ;;
   * )
-    when_unknown_build_kind ;;
+    for_unknown_task ;;
   esac
 }
 
@@ -39,7 +39,7 @@ for_renderer_process() {
   ls -lh /barley/project-js/barley-renderer
 }
 
-when_unknown_build_kind() {
+for_unknown_task() {
   echo "unknown BARLEY_TASK=$BARLEY_TASK"
   exit 1
 }

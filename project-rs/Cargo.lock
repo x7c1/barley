@@ -13,13 +13,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "33954243bd79057c2de7338850b85983a44588021f8a5fee574a8888c6de4344"
 
 [[package]]
-name = "autocfg"
-version = "1.0.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "cdb031dd78e28731d87d56cc8ffef4a8f36ca26c38fe2de700543e627f8a464a"
-
-[[package]]
-name = "barley-main"
+name = "app-main"
 version = "0.0.1"
 dependencies = [
  "console_error_panic_hook",
@@ -29,13 +23,19 @@ dependencies = [
 ]
 
 [[package]]
-name = "barley-renderer"
+name = "app-renderer"
 version = "0.0.1"
 dependencies = [
  "wasm-bindgen",
  "web-sys",
  "yew",
 ]
+
+[[package]]
+name = "autocfg"
+version = "1.0.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "cdb031dd78e28731d87d56cc8ffef4a8f36ca26c38fe2de700543e627f8a464a"
 
 [[package]]
 name = "bincode"

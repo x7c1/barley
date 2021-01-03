@@ -18,7 +18,7 @@ extern {
 
 #[wasm_bindgen]
 pub fn greet() {
-    alert("Hello, barley-main!");
+    alert("Hello, app-main!");
 }
 
 #[wasm_bindgen(js_name = explainSystem)]

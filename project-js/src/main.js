@@ -1,4 +1,4 @@
-const barley = require("../barley-main");
+const barley = require("../app-main");
 
 const path = require('path');
 const { app, BrowserWindow, screen, Menu, Tray } = require('electron')
@@ -17,7 +17,7 @@ function createWindow () {
       preload: path.join(__dirname, 'preload.js'),
     }
   })
-  // sample to use fields through barley-main wasm
+  // sample to use fields through app-main wasm
   console.log(barley.explainSystem())
   console.log("config: " + barley.createConfig())
 

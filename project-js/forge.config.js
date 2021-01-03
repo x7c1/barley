@@ -9,7 +9,7 @@ module.exports = {
             const allowlist = [
                 "/src",
                 "/package.json",
-                "/barley-main",
+                "/app-main",
                 "/dist",
                 /*
                 no need to include /node_modules dir

@@ -19,12 +19,12 @@ for_main_process() {
   echo "build for main process"
 
   wasm-pack build \
-    barley-main \
+    app-main \
     --target nodejs \
-    --out-dir /barley/project-js/barley-main \
+    --out-dir /barley/project-js/app-main \
     --release
 
-  ls -lh /barley/project-js/barley-main
+  ls -lh /barley/project-js/app-main
 }
 
 for_renderer_process() {
@@ -33,10 +33,10 @@ for_renderer_process() {
   wasm-pack build \
     app \
     --target bundler \
-    --out-dir /barley/project-js/barley-renderer \
+    --out-dir /barley/project-js/app-renderer \
     --release
 
-  ls -lh /barley/project-js/barley-renderer
+  ls -lh /barley/project-js/app-renderer
 }
 
 for_unknown_task() {

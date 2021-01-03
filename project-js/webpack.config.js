@@ -26,7 +26,7 @@ module.exports = {
     ]),
 
     new WasmPackPlugin({
-      crateDirectory: path.resolve(__dirname, "..", "project-rs", "app"),
+      crateDirectory: path.resolve(__dirname, "..", "project-rs", "app-renderer"),
 
       // The same as the `--out-dir` option for `wasm-pack`
       outDir: path.resolve(__dirname, "pkg"),

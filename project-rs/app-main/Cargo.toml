@@ -1,5 +1,5 @@
 [package]
-name = "barley-main"
+name = "app-main"
 version = "0.0.1"
 authors = ["x7c1 <jmtaro+x7c1@gmail.com>"]
 edition = "2018"

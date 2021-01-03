@@ -41,8 +41,9 @@ for_webpack_server() {
 }
 
 for_webpack_build() {
-  npm run webpack
+  npm run webpack-build
   ls -alh pkg
+  ls -alh dist
 }
 
 when_unknown_build_kind() {

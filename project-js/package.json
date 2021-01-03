@@ -2,7 +2,7 @@
   "name": "barley",
   "version": "0.0.1",
   "description": "sample electron app",
-  "main": "src/main.js",
+  "main": "src-main/main.js",
   "scripts": {
     "electron-start": "electron-forge start",
     "electron-package": "electron-forge package",

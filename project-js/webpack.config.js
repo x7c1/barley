@@ -16,18 +16,9 @@ module.exports = {
   devServer: {
     contentBase: dist,
   },
-  // target: "web",
 
   // rf. https://webpack.js.org/configuration/target/
   target: "electron-renderer",
-
-  // target: "electron-main",
-  // target: ""
-  // target: "node",
-  // target: "electron-preload",
-  // externals: {
-  //   process: 'process'
-  // },
 
   plugins: [
     new CopyPlugin([
@@ -35,15 +26,12 @@ module.exports = {
     ]),
 
     new WasmPackPlugin({
-      // crateDirectory: __dirname,
       crateDirectory: path.resolve(__dirname, "..", "project-rs", "app"),
-      // crateDirectory: path.resolve("/sssbarley", "project.rs", "app"),
 
       // The same as the `--out-dir` option for `wasm-pack`
       outDir: path.resolve(__dirname, "pkg"),
 
       // rf. https://rustwasm.github.io/docs/wasm-bindgen/reference/deployment.html
-      // default target
       // extraArgs: "--target bundler",
     }),
   ]

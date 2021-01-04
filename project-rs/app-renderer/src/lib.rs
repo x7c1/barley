@@ -1,3 +1,6 @@
+mod js;
+use js::{console, process};
+
 use wasm_bindgen::prelude::*;
 
 use yew::{ComponentLink, Component, ShouldRender, Html, html};
@@ -33,10 +36,10 @@ impl Component for Model {
 
     fn update(&mut self, msg: Self::Message) -> ShouldRender {
         let sample = format!("system version is {}", process.get_system_version());
-        log(sample.as_str());
+        console.log(sample.as_str());
 
         let sample = format!("type is {}", process.get_type());
-        log(sample.as_str());
+        console.log(sample.as_str());
 
         match msg {
             Msg::AddOne => {
@@ -63,45 +66,6 @@ impl Component for Model {
             </div>
         }
     }
-}
-
-#[wasm_bindgen(module = "electron")]
-extern {
-    #[wasm_bindgen]
-    pub type BrowserWindow;
-
-    /// Cannot call this method if running untrusted content
-    /// since it requires following BrowserWindow settings:
-    ///
-    /// ```js
-    /// webPreferences: {
-    ///   nodeIntegration: true,
-    ///   enableRemoteModule: true
-    /// ```
-    ///
-    /// See also https://www.electronjs.org/docs/tutorial/security
-    #[wasm_bindgen(constructor, js_namespace = remote)]
-    pub fn new() -> BrowserWindow;
-}
-
-#[wasm_bindgen]
-extern {
-    #[wasm_bindgen(js_namespace = console)]
-    fn log(s: &str);
-}
-
-#[wasm_bindgen]
-extern {
-    #[wasm_bindgen]
-    pub type Process;
-
-    pub static process: Process;
-
-    #[wasm_bindgen(method, getter, js_name = type)]
-    pub fn get_type(this: &Process) -> String;
-
-    #[wasm_bindgen(method, js_name = getSystemVersion)]
-    pub fn get_system_version(this: &Process) -> String;
 }
 
 #[wasm_bindgen(start)]

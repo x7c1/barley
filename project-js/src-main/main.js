@@ -47,7 +47,7 @@ app.on('activate', () => {
 let tray = null;
 
 const createTray = () =>{
-  const icon = path.join(__dirname, 'barley-icon.png')
+  const icon = path.join(__dirname, 'tray-icon.png')
   tray = new Tray(icon);
   tray.setToolTip('This is my application.');
 

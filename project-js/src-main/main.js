@@ -5,7 +5,7 @@ const { app, BrowserWindow, screen, Menu, Tray } = require('electron')
 
 function createWindow () {
   const screenArea = screen.getPrimaryDisplay().workArea
-  const [ width, height ] = [ 900, 900 ]
+  const [ width, height ] = [ 1200, 1200 ]
   const win = new BrowserWindow({
     x: screenArea.x + screenArea.width / 2 - width / 2,
     y: screenArea.y + screenArea.height / 2 - height / 2,

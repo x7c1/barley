@@ -14,6 +14,15 @@ extern {
 #[wasm_bindgen]
 extern {
     #[wasm_bindgen]
+    pub type Date;
+
+    #[wasm_bindgen(static_method_of = Date)]
+    pub fn now() -> f64;
+}
+
+#[wasm_bindgen]
+extern {
+    #[wasm_bindgen]
     pub type Process;
 
     pub static process: Process;

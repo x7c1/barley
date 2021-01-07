@@ -18,6 +18,12 @@ extern {
 
     #[wasm_bindgen(static_method_of = Date)]
     pub fn now() -> f64;
+
+    #[wasm_bindgen(constructor)]
+    pub fn new() -> Date;
+
+    #[wasm_bindgen(method, js_name = toISOString)]
+    pub fn to_iso_string(this: &Date) -> String;
 }
 
 #[wasm_bindgen]

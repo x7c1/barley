@@ -56,7 +56,7 @@ impl Component for Model {
         html! {
             <>
             <section>
-                <h2>{"callback sample"}</h2>
+                <h2>{"yew callback sample"}</h2>
                 <button onclick=self.link.callback(|_| Msg::AddOne)>{ "+1" }</button>
                 <p>{ self.value }</p>
             </section>
@@ -72,7 +72,7 @@ impl Component for Model {
 impl Model {
     fn show_sample(&self) -> String {
         let sample = Sample {
-            timestamp: Date::now().to_string(),
+            current: Date::new().to_iso_string(),
             system_version: process.get_system_version(),
             process_type: process.get_type(),
         };
@@ -85,7 +85,7 @@ impl Model {
 
 #[derive(Debug)]
 struct Sample {
-    timestamp: String,
+    current: String,
     system_version: String,
     process_type: String,
 }

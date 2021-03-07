@@ -1,10 +1,5 @@
-[package]
-name = "barley"
-version = "0.0.1"
-authors = ["x7c1 <jmtaro+x7c1@gmail.com>"]
-edition = "2018"
-
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
-
-[dependencies]
-yew = "0.17"
+[workspace]
+members = [
+    "app-renderer",
+    "app-main",
+]

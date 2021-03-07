@@ -1,15 +1,7 @@
 version: '3'
 services:
-  rs-builder:
-    image: ghcr.io/x7c1/barley:rs-0.1
+  app-builder:
+    image: ghcr.io/x7c1/barley:0.3
     volumes:
       - ../:/barley
-    command: |
-      /barley/containers/rs.build.sh
-  js-builder:
-    image: ghcr.io/x7c1/barley:js-0.1
-    volumes:
-      - ../:/barley
-      - ./logs:/root/.npm/_logs
-    command: |
-      /barley/containers/js.build.sh
+      - ./npm-logs:/root/.npm/_logs

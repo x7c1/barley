@@ -1,3 +1,7 @@
+mod js;
+
+use js::{console, process, Date};
+use wasm_bindgen::prelude::*;
 
 use yew::{ComponentLink, Component, ShouldRender, Html, html};
 
@@ -50,14 +54,44 @@ impl Component for Model {
 
     fn view(&self) -> Html {
         html! {
-            <div>
+            <>
+            <section>
+                <h2>{"yew callback sample"}</h2>
                 <button onclick=self.link.callback(|_| Msg::AddOne)>{ "+1" }</button>
                 <p>{ self.value }</p>
-            </div>
+            </section>
+            <section>
+                <h2>{"wasm_bindgen sample"}</h2>
+                <pre>{self.show_sample()}</pre>
+            </section>
+            </>
         }
     }
 }
 
-fn main() {
+impl Model {
+    fn show_sample(&self) -> String {
+        let sample = Sample {
+            current: Date::new().to_iso_string(),
+            system_version: process.get_system_version(),
+            process_type: process.get_type(),
+        };
+        let dumped = format!("{:#?}", sample);
+        console.log(&dumped);
+
+        return dumped;
+    }
+}
+
+#[derive(Debug)]
+struct Sample {
+    current: String,
+    system_version: String,
+    process_type: String,
+}
+
+#[wasm_bindgen(start)]
+pub fn main_js() -> Result<(), JsValue> {
     yew::start_app::<Model>();
+    Ok(())
 }

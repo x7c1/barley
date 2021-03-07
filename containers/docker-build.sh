@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # usage:
-# $ ./js.version.sh && ./docker-build.sh
+# $ ./version.sh && ./docker-build.sh
 
 docker build ./ \
   --file ./"$BARLEY_DOCKER_FILE" \

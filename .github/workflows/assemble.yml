@@ -49,4 +49,4 @@ jobs:
           CR_PAT: ${{ secrets.CR_PAT }}
 
       - name: Build app
-        run: make up
+        run: make assemble

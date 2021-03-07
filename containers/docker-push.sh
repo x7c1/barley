@@ -2,7 +2,7 @@
 
 # usage:
 # $ echo "$CR_PAT" | docker login ghcr.io --username ${your_name} --password-stdin
-# $ ./js.version.sh && ./docker-push.sh
+# $ ./version.sh && ./docker-push.sh
 
 ./docker-build.sh
 

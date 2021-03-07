@@ -2,11 +2,46 @@
 
 set -xue
 
-cd /barley/project-rs
+main() {
+  cd /barley/project-rs
 
-trunk build \
-  --dist ../project-js/dist \
-  --release
+  case $BARLEY_TASK in
+  "main" )
+    for_main_process ;;
+  "renderer" )
+    for_renderer_process ;;
+  * )
+    for_unknown_task ;;
+  esac
+}
 
-ls -lh target/wasm32-unknown-unknown/release
-ls -lh target/wasm-bindgen/release
+for_main_process() {
+  echo "build for main process"
+
+  wasm-pack build \
+    app-main \
+    --target nodejs \
+    --out-dir /barley/project-js/app-main \
+    --release
+
+  ls -lh /barley/project-js/app-main
+}
+
+for_renderer_process() {
+  echo "build for renderer process"
+
+  wasm-pack build \
+    app \
+    --target bundler \
+    --out-dir /barley/project-js/app-renderer \
+    --release
+
+  ls -lh /barley/project-js/app-renderer
+}
+
+for_unknown_task() {
+  echo "unknown BARLEY_TASK=$BARLEY_TASK"
+  exit 1
+}
+
+main

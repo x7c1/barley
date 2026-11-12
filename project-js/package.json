@@ -15,14 +15,14 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "@electron-forge/cli": "^6.0.0-beta.54",
-    "@electron-forge/maker-deb": "^6.0.0-beta.54",
-    "electron": "^11.1.0",
+    "@electron-forge/cli": "^6.4.2",
+    "@electron-forge/maker-deb": "^6.4.2",
+    "electron": "^42.11.16",
     "@wasm-tool/wasm-pack-plugin": "^1.1.0",
-    "copy-webpack-plugin": "^5.0.3",
-    "webpack": "^4.42.0",
+    "copy-webpack-plugin": "^14.0.0",
+    "webpack": "^5.112.2",
     "webpack-cli": "^3.3.3",
-    "webpack-dev-server": "^3.7.1",
+    "webpack-dev-server": "^5.2.6",
     "rimraf": "^3.0.0"
   }
 }
